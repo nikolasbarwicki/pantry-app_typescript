@@ -24,7 +24,12 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
     'import/extensions': [
       'error',
@@ -36,6 +41,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'react/prop-types': 'off',
   },
   settings: {
     'import/resolver': {
