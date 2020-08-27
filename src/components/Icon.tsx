@@ -1,23 +1,50 @@
 import React from 'react';
 
-import diaryIcon from '../assets/diary_icon.svg';
-import fruitIcon from '../assets/fruit_icon.svg';
-import homeIcon from '../assets/home_icon.svg';
-import meatIcon from '../assets/meat_icon.svg';
-import pantryIcon from '../assets/bottles_icon.svg';
-import breadIcon from '../assets/bread_icon.svg';
+import dairy from '../assets/dairy_icon.svg';
+import fruit from '../assets/fruit_icon.svg';
+import home from '../assets/home_icon.svg';
+import meat from '../assets/meat_icon.svg';
+import pantry from '../assets/bottles_icon.svg';
+import bread from '../assets/bread_icon.svg';
+import remove from '../assets/delete_icon.svg';
+import add from '../assets/add_icon.svg';
+import tick from '../assets/tick_icon.svg';
+import moon from '../assets/moon_icon.svg';
+import sun from '../assets/sun_icon.svg';
 
-const icons = {
-  bread: breadIcon,
-  fruit: fruitIcon,
-  diary: diaryIcon,
-  meat: meatIcon,
-  home: homeIcon,
-  pantry: pantryIcon,
+interface Icons {
+  dairy: string;
+  fruit: string;
+  home: string;
+  meat: string;
+  pantry: string;
+  bread: string;
+  remove: string;
+  add: string;
+  tick: string;
+  moon: string;
+  sun: string;
+}
+interface Props {
+  type: keyof Icons;
+}
+
+const icons: Icons = {
+  dairy,
+  fruit,
+  home,
+  meat,
+  pantry,
+  bread,
+  remove,
+  add,
+  tick,
+  moon,
+  sun,
 };
 
-const Icon: React.FC = () => {
-  return <img src={icons.bread} alt={icons.bread} />;
+const Icon: React.FC<Props> = ({ type }) => {
+  return <img src={icons[type]} alt={icons[type]} />;
 };
 
 export default Icon;

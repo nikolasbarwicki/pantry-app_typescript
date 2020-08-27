@@ -1,7 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Icon from './Icon';
+import Icon from '../Icon';
+
+type Category = 'bread' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
+
+interface Props {
+  category: Category;
+  name: string;
+  qty: number;
+  min: number;
+}
 
 const Wrapper = styled.div`
   background-color: #fff;
@@ -19,20 +28,20 @@ const Wrapper = styled.div`
   margin: 2rem 0;
 `;
 
-const TableRow: React.FC = () => {
+const TableRow: React.FC<Props> = ({ category, name, qty, min }) => {
   return (
     <Wrapper>
-      <Icon />
+      <Icon type={category} />
       <span style={{ justifySelf: 'start', marginLeft: '2rem' }}>Bakery</span>
       <span
         style={{ justifySelf: 'start', marginLeft: '2rem', fontWeight: 600 }}
       >
-        Bread
+        {name}
       </span>
-      <span>+1</span>
-      <span>+1</span>
-      <span>+1</span>
-      <Icon />
+      <span>{qty}</span>
+      <span>{min}</span>
+      <span>{qty - min}</span>
+      <Icon type="remove" />
     </Wrapper>
   );
 };

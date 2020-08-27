@@ -5,7 +5,7 @@ import TableHeading from './TableHeading';
 import TableBody from './TableBody';
 
 const Wrapper = styled.main`
-  padding: 5rem 10rem;
+  padding: 4rem 10rem;
   width: 100%;
 `;
 

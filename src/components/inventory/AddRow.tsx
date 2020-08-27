@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Icon from './Icon';
+import Icon from '../Icon';
 
 const Wrapper = styled.div`
   border-radius: 2rem;
@@ -32,7 +32,7 @@ const TableRow: React.FC = () => {
       <span>+1</span>
       <span>+1</span>
       <span>+1</span>
-      <Icon />
+      <Icon type="add" />
     </Wrapper>
   );
 };
