@@ -32,7 +32,9 @@ const TableRow: React.FC<Props> = ({ category, name, qty, min }) => {
   return (
     <Wrapper>
       <Icon type={category} />
-      <span style={{ justifySelf: 'start', marginLeft: '2rem' }}>Bakery</span>
+      <span style={{ justifySelf: 'start', marginLeft: '2rem' }}>
+        {category}
+      </span>
       <span
         style={{ justifySelf: 'start', marginLeft: '2rem', fontWeight: 600 }}
       >

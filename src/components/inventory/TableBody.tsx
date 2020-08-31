@@ -1,27 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import TableRow from './TableRow';
 import AddRow from './AddRow';
 
-type DummyContent = Array<{
-  category: 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
-  name: string;
-  qty: number;
-  min: number;
-}>;
+import { InventoryItem } from '../../actions/types';
 
-const dummyContent: DummyContent = [
-  { category: 'bakery', name: 'Bread', qty: 2, min: 1 },
-  { category: 'fruit', name: 'Bananas', qty: 5, min: 5 },
-  { category: 'fruit', name: 'Carrots', qty: 2, min: 1 },
-  { category: 'dairy', name: 'Milk', qty: 0, min: 3 },
-  { category: 'home', name: 'Toilet paper', qty: 0, min: 6 },
-  { category: 'pantry', name: 'Bread flour', qty: 4, min: 4 },
-];
+interface RootState {
+  inventory: InventoryItem[];
+}
 
 const TableBody: React.FC = () => {
+  const inventory = useSelector((state: RootState) => state.inventory);
+
   return (
     <div>
-      {dummyContent.map((el) => (
+      {inventory.map((el) => (
         <TableRow
           category={el.category}
           name={el.name}
