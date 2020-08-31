@@ -2,10 +2,10 @@ import React from 'react';
 
 import CategoriesItem from './CategoriesItem';
 
-type Category = 'bread' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
+type Category = 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
 
 const categories: Category[] = [
-  'bread',
+  'bakery',
   'fruit',
   'dairy',
   'meat',

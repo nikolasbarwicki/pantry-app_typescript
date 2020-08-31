@@ -3,14 +3,14 @@ import TableRow from './TableRow';
 import AddRow from './AddRow';
 
 type DummyContent = Array<{
-  category: 'bread' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
+  category: 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
   name: string;
   qty: number;
   min: number;
 }>;
 
 const dummyContent: DummyContent = [
-  { category: 'bread', name: 'Bread', qty: 2, min: 1 },
+  { category: 'bakery', name: 'Bread', qty: 2, min: 1 },
   { category: 'fruit', name: 'Bananas', qty: 5, min: 5 },
   { category: 'fruit', name: 'Carrots', qty: 2, min: 1 },
   { category: 'dairy', name: 'Milk', qty: 0, min: 3 },

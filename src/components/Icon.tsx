@@ -5,7 +5,7 @@ import fruit from '../assets/fruit_icon.svg';
 import home from '../assets/home_icon.svg';
 import meat from '../assets/meat_icon.svg';
 import pantry from '../assets/bottles_icon.svg';
-import bread from '../assets/bread_icon.svg';
+import bakery from '../assets/bread_icon.svg';
 import remove from '../assets/delete_icon.svg';
 import add from '../assets/add_icon.svg';
 import tick from '../assets/tick_icon.svg';
@@ -18,7 +18,7 @@ interface Icons {
   home: string;
   meat: string;
   pantry: string;
-  bread: string;
+  bakery: string;
   remove: string;
   add: string;
   tick: string;
@@ -35,7 +35,7 @@ const icons: Icons = {
   home,
   meat,
   pantry,
-  bread,
+  bakery,
   remove,
   add,
   tick,

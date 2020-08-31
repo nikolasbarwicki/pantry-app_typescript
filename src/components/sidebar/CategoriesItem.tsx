@@ -3,17 +3,10 @@ import styled from 'styled-components';
 
 import Icon from '../Icon';
 
-interface Categories {
-  dairy: string;
-  fruit: string;
-  home: string;
-  meat: string;
-  pantry: string;
-  bread: string;
-}
+type Category = 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
 
 interface Props {
-  category: keyof Categories;
+  category: Category;
 }
 
 const Wrapper = styled.div`
