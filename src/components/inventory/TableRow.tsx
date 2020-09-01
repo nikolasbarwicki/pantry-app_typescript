@@ -1,9 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+import Counter from './Counter';
 import Icon from '../Icon';
 
-type Category = 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
+import { Category } from '../../types/index';
 
 interface Props {
   category: Category;
@@ -29,6 +31,8 @@ const Wrapper = styled.div`
 `;
 
 const TableRow: React.FC<Props> = ({ category, name, qty, min }) => {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <Icon type={category} />
@@ -40,10 +44,15 @@ const TableRow: React.FC<Props> = ({ category, name, qty, min }) => {
       >
         {name}
       </span>
-      <span>{qty}</span>
+      <Counter id={name} amount={qty} />
       <span>{min}</span>
       <span>{qty - min}</span>
-      <Icon type="remove" />
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'DELETE_ITEM', payload: name })}
+      >
+        X
+      </button>
     </Wrapper>
   );
 };

@@ -1,9 +1,4 @@
-export interface InventoryItem {
-  id: string;
-  category: 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
-  name: string;
-  qty: number;
-  min: number;
-}
-
-export type InventoryState = Array<InventoryItem>;
+export const DELETE_ITEM = 'DELETE_ITEM';
+export const ADD_QUANTITY = 'ADD_QUANTITY';
+export const REMOVE_QUANTITY = 'REMOVE_QUANTITY';
+export const ADD_PURCHASE = 'ADD_PURCHASE';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Icon from '../Icon';
 
-type Category = 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
+import { Category } from '../../types/index';
 
 interface Props {
   category: Category;

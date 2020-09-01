@@ -3,11 +3,7 @@ import { useSelector } from 'react-redux';
 import TableRow from './TableRow';
 import AddRow from './AddRow';
 
-import { InventoryItem } from '../../actions/types';
-
-interface RootState {
-  inventory: InventoryItem[];
-}
+import { RootState } from '../../types/index';
 
 const TableBody: React.FC = () => {
   const inventory = useSelector((state: RootState) => state.inventory);

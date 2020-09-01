@@ -2,11 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ShoppingListItem from './ShoppingListItem';
 
-import { InventoryItem } from '../../actions/types';
-
-interface RootState {
-  inventory: InventoryItem[];
-}
+import { RootState } from '../../types/index';
 
 const ShoppingList: React.FC = () => {
   const inventory = useSelector((state: RootState) => state.inventory);

@@ -1,9 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import Icon from '../Icon';
 
-type Category = 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
+import { Category } from '../../types/index';
 
 interface Props {
   category: Category;
@@ -21,12 +22,19 @@ const Wrapper = styled.div`
 `;
 
 const ShoppingListItem: React.FC<Props> = ({ category, name, amount }) => {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <Icon type={category} />
       <h4>{name}</h4>
       <span>{amount}</span>
-      <Icon type="tick" />
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'ADD_PURCHASE', payload: name })}
+      >
+        +
+      </button>
     </Wrapper>
   );
 };
