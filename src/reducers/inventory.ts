@@ -2,6 +2,13 @@ import { InventoryState } from '../actions/types';
 
 const initialState: InventoryState = [
   { id: 'bread', category: 'bakery', name: 'bread', qty: 2, min: 1 },
+  {
+    id: 'brioche buns',
+    category: 'bakery',
+    name: 'brioche buns',
+    qty: 1,
+    min: 4,
+  },
   { id: 'bananas', category: 'fruit', name: 'bananas', qty: 4, min: 2 },
   {
     id: 'toilet paper',

@@ -1,15 +1,29 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import ShoppingListItem from './ShoppingListItem';
 
+import { InventoryItem } from '../../actions/types';
+
+interface RootState {
+  inventory: InventoryItem[];
+}
+
 const ShoppingList: React.FC = () => {
+  const inventory = useSelector((state: RootState) => state.inventory);
+
+  const shoppingList = inventory.filter((el) => el.qty - el.min < 0);
+
   return (
     <div>
       <h2>Shopping list</h2>
       <div>
-        <ShoppingListItem name="Carrots" category="fruit" amount={1} />
-        <ShoppingListItem name="Milk" category="dairy" amount={3} />
-        <ShoppingListItem name="Toilet paper" category="home" amount={6} />
+        {shoppingList.map((el) => (
+          <ShoppingListItem
+            category={el.category}
+            name={el.name}
+            amount={-(el.qty - el.min)}
+          />
+        ))}
       </div>
     </div>
   );

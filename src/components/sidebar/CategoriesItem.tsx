@@ -7,6 +7,7 @@ type Category = 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
 
 interface Props {
   category: Category;
+  amount: number;
 }
 
 const Wrapper = styled.div`
@@ -28,13 +29,13 @@ const Value = styled.div`
   text-align: center;
 `;
 
-const CategoriesItem: React.FC<Props> = ({ category }) => {
+const CategoriesItem: React.FC<Props> = ({ category, amount }) => {
   return (
     <Wrapper>
       <Icon type={category} />
       <span>{category}</span>
       <span />
-      <Value>3</Value>
+      <Value>{amount}</Value>
     </Wrapper>
   );
 };
