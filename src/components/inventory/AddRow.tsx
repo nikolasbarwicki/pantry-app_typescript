@@ -1,9 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 
-import Icon from '../Icon';
-
-const Wrapper = styled.div`
+const FormWrapper = styled.form`
   border-radius: 2rem;
   height: 6.5rem;
   width: 100%;
@@ -19,21 +20,71 @@ const Wrapper = styled.div`
   margin: 2rem 0;
 `;
 
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+type FormData = {
+  category: string;
+  name: string;
+  qty: number;
+  min: number;
+};
+
 const TableRow: React.FC = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit, errors, reset } = useForm<FormData>();
+
+  const id: string = uuidv4();
+
+  const onSubmit = handleSubmit((data: FormData) => {
+    dispatch({ type: 'ADD_ITEM', payload: { id, ...data } });
+    reset();
+  });
+
   return (
-    <Wrapper>
+    <FormWrapper onSubmit={onSubmit}>
       <span />
-      <span style={{ justifySelf: 'start', marginLeft: '2rem' }}>
-        Choose category
-      </span>
-      <span style={{ justifySelf: 'start', marginLeft: '2rem' }}>
-        Add new item
-      </span>
-      <span>+1</span>
-      <span>+1</span>
-      <span>+1</span>
-      <Icon type="add" />
-    </Wrapper>
+      <select name="category" ref={register}>
+        <option value="bakery">bakery</option>
+        <option value="fruit">fruit</option>
+        <option value="dairy">dairy</option>
+        <option value="meat">meat</option>
+        <option value="home">home</option>
+        <option value="pantry">pantry</option>
+      </select>
+      <InputWrapper>
+        <input
+          name="name"
+          ref={register({ required: true, maxLength: 25 })}
+          placeholder="Add new item..."
+          autoComplete="off"
+        />
+        {errors.name && <small>Name is required</small>}
+      </InputWrapper>
+      <InputWrapper>
+        <input
+          name="qty"
+          type="number"
+          ref={register({ required: true, min: 0, max: 99 })}
+        />
+        {errors.qty && <small>Quantity can&apos;t be smaller than 0</small>}
+      </InputWrapper>
+      <InputWrapper>
+        <input
+          name="min"
+          type="number"
+          ref={register({ required: true, min: 0, max: 99 })}
+        />
+        {errors.min && (
+          <small>Min. quantity can&apos;t be smaller than 0</small>
+        )}
+      </InputWrapper>
+
+      <span />
+      <input type="submit" />
+    </FormWrapper>
   );
 };
 

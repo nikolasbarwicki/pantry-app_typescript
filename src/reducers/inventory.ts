@@ -3,6 +3,7 @@ import {
   ADD_QUANTITY,
   DELETE_ITEM,
   REMOVE_QUANTITY,
+  ADD_ITEM,
 } from '../actions/types';
 
 interface InventoryItem {
@@ -13,9 +14,24 @@ interface InventoryItem {
   min: number;
 }
 
+interface AddItemAction {
+  type: typeof ADD_ITEM;
+  payload: InventoryItem;
+}
+
+interface OtherActions {
+  type:
+    | typeof ADD_PURCHASE
+    | typeof ADD_QUANTITY
+    | typeof DELETE_ITEM
+    | typeof REMOVE_QUANTITY;
+  payload: string;
+}
+
+type Payload = InventoryItem | string;
 type InventoryState = Array<InventoryItem>;
 
-type Action = { type: string; payload: string };
+type InventoryActionTypes = AddItemAction | OtherActions;
 
 const initialState: InventoryState = [
   { id: 'bread', category: 'bakery', name: 'bread', qty: 2, min: 1 },
@@ -37,8 +53,13 @@ const initialState: InventoryState = [
   { id: 'milk', category: 'dairy', name: 'milk', qty: 8, min: 2 },
 ];
 
-export default (state = initialState, action: Action): InventoryState => {
+export default (
+  state = initialState,
+  action: InventoryActionTypes,
+): InventoryState => {
   switch (action.type) {
+    case ADD_ITEM:
+      return [...state, action.payload];
     case ADD_QUANTITY:
       return [
         ...state.map((el) =>
