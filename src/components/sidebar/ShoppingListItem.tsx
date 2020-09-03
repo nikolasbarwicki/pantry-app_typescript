@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import Icon from '../Icon';
+import TickIcon from '../../assets/tick_icon.svg';
 
 import { Category } from '../../types/index';
 
@@ -21,6 +22,17 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const TickButton = styled.button`
+  cursor: pointer;
+  outline: none;
+  background-image: url(${TickIcon});
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: none;
+  background-size: cover;
+`;
+
 const ShoppingListItem: React.FC<Props> = ({ category, name, amount }) => {
   const dispatch = useDispatch();
 
@@ -29,12 +41,10 @@ const ShoppingListItem: React.FC<Props> = ({ category, name, amount }) => {
       <Icon type={category} />
       <h4>{name}</h4>
       <span>{amount}</span>
-      <button
+      <TickButton
         type="button"
         onClick={() => dispatch({ type: 'ADD_PURCHASE', payload: name })}
-      >
-        +
-      </button>
+      />
     </Wrapper>
   );
 };

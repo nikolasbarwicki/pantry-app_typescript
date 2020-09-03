@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Counter from './Counter';
 import Icon from '../Icon';
+import DeleteIcon from '../../assets/delete_icon.svg';
 
 import { Category } from '../../types/index';
 
@@ -30,6 +31,17 @@ const Wrapper = styled.div`
   margin: 2rem 0;
 `;
 
+const DeleteButton = styled.button`
+  cursor: pointer;
+  outline: none;
+  background-image: url(${DeleteIcon});
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: none;
+  background-size: cover;
+`;
+
 const TableRow: React.FC<Props> = ({ category, name, qty, min }) => {
   const dispatch = useDispatch();
 
@@ -47,12 +59,10 @@ const TableRow: React.FC<Props> = ({ category, name, qty, min }) => {
       <Counter id={name} amount={qty} />
       <span>{min}</span>
       <span>{qty - min}</span>
-      <button
+      <DeleteButton
         type="button"
         onClick={() => dispatch({ type: 'DELETE_ITEM', payload: name })}
-      >
-        X
-      </button>
+      />
     </Wrapper>
   );
 };
