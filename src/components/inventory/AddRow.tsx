@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 
+import addIcon from '../../assets/add_icon.svg';
+
 const FormWrapper = styled.form`
   border-radius: 2rem;
   height: 6.5rem;
@@ -23,6 +25,8 @@ const FormWrapper = styled.form`
 const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  max-width: 80%;
 `;
 
 type FormData = {
@@ -31,6 +35,53 @@ type FormData = {
   qty: number;
   min: number;
 };
+
+const ErrorMessage = styled.small`
+  position: absolute;
+  top: 25px;
+  color: ${(props) => props.theme.red};
+  font-weight: 500;
+`;
+
+const Select = styled.select`
+  border: none;
+  background-color: ${(props) => props.theme.paleblue};
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  width: 80%;
+  :focus {
+    outline: none;
+  }
+  justify-self: start;
+  margin-left: 2rem;
+  color: ${(props) => props.theme.gray};
+`;
+
+const Input = styled.input`
+  font-size: 1.6rem;
+  font-family: 'Montserrat';
+  color: #000;
+  background-color: ${(props) => props.theme.paleblue};
+  border: none;
+  justify-self: start;
+  :focus {
+    outline: none;
+    background-color: ${(props) => props.theme.paleblue};
+  }
+`;
+
+const SubmitButton = styled.button`
+  display: block;
+  content: '';
+  cursor: pointer;
+  outline: none;
+  background-image: url(${addIcon});
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: none;
+  background-size: cover;
+`;
 
 const TableRow: React.FC = () => {
   const dispatch = useDispatch();
@@ -46,44 +97,52 @@ const TableRow: React.FC = () => {
   return (
     <FormWrapper onSubmit={onSubmit}>
       <span />
-      <select name="category" ref={register}>
+      <Select name="category" ref={register}>
         <option value="bakery">bakery</option>
         <option value="fruit">fruit</option>
         <option value="dairy">dairy</option>
         <option value="meat">meat</option>
         <option value="home">home</option>
         <option value="pantry">pantry</option>
-      </select>
+      </Select>
       <InputWrapper>
-        <input
+        <Input
           name="name"
           ref={register({ required: true, maxLength: 25 })}
           placeholder="Add new item..."
           autoComplete="off"
         />
-        {errors.name && <small>Name is required</small>}
+        {errors.name && <ErrorMessage>Name is required</ErrorMessage>}
       </InputWrapper>
-      <InputWrapper>
-        <input
+      <InputWrapper style={{ maxWidth: '4rem', marginLeft: '2.2rem' }}>
+        <Input
           name="qty"
+          defaultValue="0"
+          autoComplete="off"
           type="number"
           ref={register({ required: true, min: 0, max: 99 })}
         />
-        {errors.qty && <small>Quantity can&apos;t be smaller than 0</small>}
+        {errors.qty && (
+          <ErrorMessage>Quantity can&apos;t be smaller than 0</ErrorMessage>
+        )}
       </InputWrapper>
-      <InputWrapper>
-        <input
+      <InputWrapper style={{ maxWidth: '4rem', marginLeft: '2.2rem' }}>
+        <Input
           name="min"
+          defaultValue="0"
+          autoComplete="off"
           type="number"
           ref={register({ required: true, min: 0, max: 99 })}
         />
         {errors.min && (
-          <small>Min. quantity can&apos;t be smaller than 0</small>
+          <ErrorMessage>
+            Min. quantity can&apos;t be smaller than 0
+          </ErrorMessage>
         )}
       </InputWrapper>
 
       <span />
-      <input type="submit" />
+      <SubmitButton type="submit" />
     </FormWrapper>
   );
 };
