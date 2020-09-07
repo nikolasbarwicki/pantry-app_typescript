@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Sidebar from '../components/sidebar/Sidebar';
 import Content from '../components/inventory/Content';
-import ToggleMode from '../components/ToggleMode';
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -14,7 +13,6 @@ const Wrapper = styled.div`
 const Root: React.FC = () => {
   return (
     <Wrapper>
-      <ToggleMode />
       <Sidebar />
       <Content />
     </Wrapper>

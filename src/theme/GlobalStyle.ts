@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    color: ${({ theme }) => theme.text};
     margin: 0;
     padding: 0;
     font-size: 1.6rem;

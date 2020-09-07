@@ -60,7 +60,7 @@ const Select = styled.select`
 const Input = styled.input`
   font-size: 1.6rem;
   font-family: 'Montserrat';
-  color: #000;
+  color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.paleblue};
   border: none;
   justify-self: start;
@@ -68,17 +68,18 @@ const Input = styled.input`
     outline: none;
     background-color: ${(props) => props.theme.paleblue};
   }
+  ::placeholder {
+    color: ${(props) => props.theme.text};
+  }
 `;
 
 const SubmitButton = styled.button`
-  display: block;
-  content: '';
   cursor: pointer;
   outline: none;
   background-image: url(${addIcon});
   height: 25px;
   width: 25px;
-  background-color: white;
+  background-color: transparent;
   border: none;
   background-size: cover;
 `;

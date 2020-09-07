@@ -25,8 +25,9 @@ const Value = styled.div`
   height: 25px;
   padding: 3px;
   background: ${(props) => props.theme.gray};
-  color: white;
+  color: ${({ theme }) => theme.white};
   text-align: center;
+  font-weight: 700;
 `;
 
 const CategoriesItem: React.FC<Props> = ({ category, amount }) => {

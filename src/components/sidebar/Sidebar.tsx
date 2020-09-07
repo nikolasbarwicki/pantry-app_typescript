@@ -6,7 +6,7 @@ import Categories from './Categories';
 import logo from '../../assets/pantryapp_logo.svg';
 
 const Wrapper = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.white};
   min-width: 40rem;
   box-shadow: 10px 0px 20px 0px rgba(0, 0, 0, 0.05);
   padding: 5rem;

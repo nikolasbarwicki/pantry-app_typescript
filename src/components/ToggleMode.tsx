@@ -1,24 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-
-import Icon from './Icon';
-
-const Wrapper = styled.aside`
-  display: block;
-  position: fixed;
-  top: 6rem;
-  right: 10rem;
-  z-index: 999;
-  width: 3rem;
-  height: auto;
-  cursor: pointer;
-`;
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useContext } from 'react';
+import ThemeContext from '../context/context';
+import styles from './ToggleMode.module.css';
 
 const ToggleMode: React.FC = () => {
+  const { dispatch } = useContext(ThemeContext);
+
+  const onChangeHandler = () => {
+    dispatch({ type: 'TOGGLE_DARK_MODE' });
+  };
+
   return (
-    <Wrapper>
-      <Icon type="moon" />
-    </Wrapper>
+    <div className="wrapper">
+      <input
+        type="checkbox"
+        id="checkbox"
+        className={styles.checkbox}
+        onChange={onChangeHandler}
+      />
+
+      <label htmlFor="checkbox" className={styles.label}>
+        <div className={styles.ball} />
+      </label>
+    </div>
   );
 };
 

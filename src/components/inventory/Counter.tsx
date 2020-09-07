@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: white;
+  background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;

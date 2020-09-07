@@ -28,7 +28,7 @@ const TickButton = styled.button`
   background-image: url(${TickIcon});
   height: 25px;
   width: 25px;
-  background-color: white;
+  background-color: transparent;
   border: none;
   background-size: cover;
 `;

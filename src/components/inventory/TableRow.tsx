@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.white};
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
   border-radius: 2rem;
   height: 6.5rem;
@@ -37,7 +37,7 @@ const DeleteButton = styled.button`
   background-image: url(${DeleteIcon});
   height: 25px;
   width: 25px;
-  background-color: white;
+  background-color: transparent;
   border: none;
   background-size: cover;
 `;
