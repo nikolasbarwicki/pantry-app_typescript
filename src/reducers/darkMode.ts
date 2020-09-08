@@ -8,7 +8,7 @@ interface Props {
   isDark: boolean;
 }
 
-const reducer: Reducer<Props, Actions> = (
+const darkModeReducer: Reducer<Props, Actions> = (
   state = { isDark: false },
   action,
 ) => {
@@ -22,4 +22,4 @@ const reducer: Reducer<Props, Actions> = (
   }
 };
 
-export default reducer;
+export default darkModeReducer;
