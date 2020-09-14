@@ -1,6 +1,6 @@
 export const lightTheme = {
-  white: '#FFFFFF',
-  paleblue: '#F5F7FB',
+  primary: '#FFFFFF',
+  secondary: '#F5F7FB',
   gray: '#6E6E6E',
   green: '#3AD3BF',
   red: '#FD808C',
@@ -10,8 +10,8 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  white: '#0f0e1c',
-  paleblue: '#1b1929',
+  primary: '#0f0e1c',
+  secondary: '#1b1929',
   gray: '#fff',
   green: '#3AD3BF',
   red: '#FD808C',

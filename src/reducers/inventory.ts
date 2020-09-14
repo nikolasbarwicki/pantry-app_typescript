@@ -1,3 +1,4 @@
+import { InventoryItem } from '../types/index';
 import {
   ADD_PURCHASE,
   ADD_QUANTITY,
@@ -5,14 +6,6 @@ import {
   REMOVE_QUANTITY,
   ADD_ITEM,
 } from '../actions/types';
-
-interface InventoryItem {
-  id: string;
-  category: 'bakery' | 'fruit' | 'dairy' | 'meat' | 'home' | 'pantry';
-  name: string;
-  qty: number;
-  min: number;
-}
 
 interface AddItemAction {
   type: typeof ADD_ITEM;
@@ -28,7 +21,6 @@ interface OtherActions {
   payload: string;
 }
 
-type Payload = InventoryItem | string;
 type InventoryState = Array<InventoryItem>;
 
 type InventoryActionTypes = AddItemAction | OtherActions;

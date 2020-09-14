@@ -7,7 +7,7 @@ import Content from '../components/inventory/Content';
 const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
-  background-color: ${(props) => props.theme.paleblue};
+  background-color: ${(props) => props.theme.secondary};
 `;
 
 const Root: React.FC = () => {

@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.white};
+  background-color: ${({ theme }) => theme.primary};
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
   border-radius: 2rem;
   height: 6.5rem;

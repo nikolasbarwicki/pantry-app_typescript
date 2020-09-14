@@ -7,12 +7,6 @@ import TickIcon from '../../assets/tick_icon.svg';
 
 import { Category } from '../../types/index';
 
-interface Props {
-  category: Category;
-  name: string;
-  amount: number;
-}
-
 const Wrapper = styled.div`
   display: grid;
   height: 3.5rem;
@@ -32,6 +26,12 @@ const TickButton = styled.button`
   border: none;
   background-size: cover;
 `;
+
+interface Props {
+  category: Category;
+  name: string;
+  amount: number;
+}
 
 const ShoppingListItem: React.FC<Props> = ({ category, name, amount }) => {
   const dispatch = useDispatch();

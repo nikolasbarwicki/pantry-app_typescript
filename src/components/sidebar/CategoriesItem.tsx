@@ -5,11 +5,6 @@ import Icon from '../Icon';
 
 import { Category } from '../../types/index';
 
-interface Props {
-  category: Category;
-  amount: number;
-}
-
 const Wrapper = styled.div`
   display: grid;
   height: 3.5rem;
@@ -25,10 +20,15 @@ const Value = styled.div`
   height: 25px;
   padding: 3px;
   background: ${(props) => props.theme.gray};
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.primary};
   text-align: center;
   font-weight: 700;
 `;
+
+interface Props {
+  category: Category;
+  amount: number;
+}
 
 const CategoriesItem: React.FC<Props> = ({ category, amount }) => {
   return (

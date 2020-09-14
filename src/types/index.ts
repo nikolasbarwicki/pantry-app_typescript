@@ -17,3 +17,10 @@ export interface InventoryItem {
 export interface RootState {
   inventory: InventoryItem[];
 }
+
+export type FormData = {
+  category: string;
+  name: string;
+  qty: number;
+  min: number;
+};

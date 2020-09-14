@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
+import { FormData } from '../../types/index';
 
 import addIcon from '../../assets/add_icon.svg';
 
@@ -29,13 +30,6 @@ const InputWrapper = styled.div`
   max-width: 80%;
 `;
 
-type FormData = {
-  category: string;
-  name: string;
-  qty: number;
-  min: number;
-};
-
 const ErrorMessage = styled.small`
   position: absolute;
   top: 25px;
@@ -45,7 +39,7 @@ const ErrorMessage = styled.small`
 
 const Select = styled.select`
   border: none;
-  background-color: ${(props) => props.theme.paleblue};
+  background-color: ${(props) => props.theme.secondary};
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   width: 80%;
@@ -61,12 +55,12 @@ const Input = styled.input`
   font-size: 1.6rem;
   font-family: 'Montserrat';
   color: ${(props) => props.theme.text};
-  background-color: ${(props) => props.theme.paleblue};
+  background-color: ${(props) => props.theme.secondary};
   border: none;
   justify-self: start;
   :focus {
     outline: none;
-    background-color: ${(props) => props.theme.paleblue};
+    background-color: ${(props) => props.theme.secondary};
   }
   ::placeholder {
     color: ${(props) => props.theme.text};

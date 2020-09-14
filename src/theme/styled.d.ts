@@ -2,8 +2,8 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    white: string;
-    paleblue: string;
+    primary: string;
+    secondary: string;
     gray: string;
     green: string;
     red: string;
